@@ -108,7 +108,9 @@ The `.claude` directory contains:
 4. Save as a template
 5. Get the template ID from the URL: `gamma.app/docs/[template-id]`
 
-#### Set Environment Variable
+**Note:** You'll need to create your own template and configure the template ID in your `.env` file (see below).
+
+#### Set Environment Variables
 
 Create a `.env` file in your project root:
 
@@ -116,8 +118,15 @@ Create a `.env` file in your project root:
 # Copy the example file
 cp .env.example .env
 
-# Edit with your API key
-echo "GAMMA_API_KEY=sk-gamma-your-api-key-here" > .env
+# Edit with your API key and template ID
+nano .env  # or use your preferred editor
+```
+
+Your `.env` file should contain:
+
+```bash
+GAMMA_API_KEY=sk-gamma-your-actual-api-key
+GAMMA_TEMPLATE_ID=g_your-actual-template-id
 ```
 
 **Important:** Never commit your `.env` file to git. The `.gitignore` is already configured to exclude it.
@@ -197,31 +206,24 @@ Paste complete case study text directly:
 
 ## Template Customization
 
-To use your own Gamma template:
+To use a different Gamma template:
 
-1. Create your template in Gamma
-2. Get the template ID from the URL
-3. Update `.claude/commands/create-case-study.md`:
+1. Create your new template in Gamma
+2. Get the template ID from the URL (format: `g_xxxxxxxxx`)
+3. Update your `.env` file:
 
-```markdown
-# Replace with your template ID
+```bash
+GAMMA_TEMPLATE_ID=g_your-new-template-id
 ```
 
-4. Update the request body section:
-
-```json
-{
-  "gammaId": "your-template-id-here",
-  "prompt": "[Complete case study text]"
-}
-```
+That's it! The workflow will automatically use your new template ID.
 
 
 ## Troubleshooting
 
-### "GAMMA_API_KEY not set"
+### "GAMMA_API_KEY not set" or "GAMMA_TEMPLATE_ID not set"
 
-**Problem:** Environment variable not loaded
+**Problem:** Environment variables not loaded
 
 **Solution:**
 ```bash
@@ -230,6 +232,10 @@ ls -la .env
 
 # Check content (don't commit this!)
 cat .env
+
+# Ensure both variables are set:
+# GAMMA_API_KEY=sk-gamma-...
+# GAMMA_TEMPLATE_ID=g_...
 
 # Restart Claude Code to reload environment
 ```

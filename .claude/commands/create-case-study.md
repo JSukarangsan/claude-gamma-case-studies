@@ -41,12 +41,12 @@ Keep the content focused and concise - the template will handle the visual layou
 - Endpoint: `POST https://public-api.gamma.app/v1.0/generations/from-template`
 - Authentication: `X-API-KEY` header with value from `$GAMMA_API_KEY`
 - Content-Type: `application/json`
-- Template Gamma ID: `g_seds5bke4felj8x`
+- Template Gamma ID: Use `$GAMMA_TEMPLATE_ID` from environment
 
 **Request Body Structure:**
 ```json
 {
-  "gammaId": "g_seds5bke4felj8x",
+  "gammaId": "[Value from $GAMMA_TEMPLATE_ID]",
   "prompt": "[Complete case study text from agent]"
 }
 ```
@@ -75,6 +75,8 @@ source .env && curl --request POST \
   --data @/tmp/gamma-request.json
 ```
 
+**Note:** The gammaId in the JSON file should use the value from `$GAMMA_TEMPLATE_ID` environment variable.
+
 3. **Parse the response:**
    - Extract the `generationId` from the JSON response
    - This is what you'll show to the user
@@ -94,7 +96,9 @@ The API returns a generation ID. Inform the user:
 
 If the API call fails:
 - Check if `GAMMA_API_KEY` is set in the environment
+- Check if `GAMMA_TEMPLATE_ID` is set in the environment
 - Verify the API key format (should be `sk-gamma-xxxxxxxx`)
+- Verify the template ID format (should be `g_xxxxxxxxx`)
 - Show the error message from Gamma API
 - Suggest checking their Gamma Pro subscription status
 

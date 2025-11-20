@@ -108,10 +108,6 @@ The `.claude` directory contains:
 4. Save as a template
 5. Get the template ID from the URL: `gamma.app/docs/[template-id]`
 
-**Note:** The current setup uses template ID `g_seds5bke4felj8x`. You can:
-- Use this template (if shared publicly)
-- Create your own and update the template ID in `.claude/commands/create-case-study.md`
-
 #### Set Environment Variable
 
 Create a `.env` file in your project root:
@@ -150,35 +146,6 @@ If setup is correct, the agent will ask: "What information do you have about thi
 4. Review the structured content
 5. Confirm to generate the Gamma presentation
 
-**Example interaction:**
-
-```
-You: /create-case-study
-
-Agent: What information do you have about this project?
-
-You: We built an AI lead scoring system for a SaaS company
-
-Agent: Great! Let's structure this. What industry is the client in?
-
-You: EdTech, K-12 learning management software
-
-Agent: What specific problem were they facing?
-
-[Continue answering questions...]
-
-Agent: Here's the case study I've created:
-
-[Shows formatted content]
-
-Looks good? I'll send this to Gamma.
-
-You: Yes
-
-Agent: ✅ Case study generated!
-📊 Cost: ~3 credits
-🔗 View at: https://gamma.app
-```
 
 ### Option 2: From Markdown File
 
@@ -237,7 +204,7 @@ To use your own Gamma template:
 3. Update `.claude/commands/create-case-study.md`:
 
 ```markdown
-- Template Gamma ID: `g_seds5bke4felj8x`  # Replace with your template ID
+# Replace with your template ID
 ```
 
 4. Update the request body section:
@@ -249,16 +216,6 @@ To use your own Gamma template:
 }
 ```
 
-## Cost
-
-**Gamma API Credits:**
-- Each case study generation: ~3-4 credits
-- Gamma Pro plan includes credits monthly
-- Check your balance at: https://gamma.app/settings/billing
-
-**Development:**
-- Claude Code: Free (with Claude Pro subscription)
-- This workflow: Free and open source
 
 ## Troubleshooting
 
@@ -345,44 +302,10 @@ See the `examples/` directory for sample case studies:
 6. **Response** returns `generationId` for tracking
 7. **User** accesses presentation in Gamma dashboard
 
-### Template-Based Generation
-
-This workflow uses **template-based generation**, not free-form AI slides.
-
-**Why?**
-- Consistent branding across all case studies
-- Professional design quality
-- Faster generation (pre-designed layout)
-- Predictable output structure
-- Easy to update design for all future case studies
-
-**The pattern:**
-- Design template once (human quality)
-- Generate content with AI (automation)
-- Populate via API (consistent output)
-
-This is the difference between "AI makes slides" (chaos) and "AI populates proven templates" (production-ready).
-
-## Contributing
-
-Contributions welcome! Areas for improvement:
-
-- [ ] Additional case study templates
-- [ ] Support for other presentation tools (Pitch, Beautiful.ai)
-- [ ] Multi-page case study generation
-- [ ] Integration with CRM systems
-- [ ] Automated screenshot/image inclusion
-- [ ] Video case study scripts
-
-Open an issue or submit a PR.
-
-## License
-
-MIT License - See [LICENSE](LICENSE) file for details.
 
 ## Credits
 
-Built by [Jon Sukarangsan](https://twitter.com/jonsukarangsan) | [Summer Friday & Partners](https://summerfriday.co)
+Built by Jon Sukarangsan | [Summer Friday & Partners](https://summerfriday.co)
 
 Inspired by the need to stop losing sales momentum over missing case studies.
 
@@ -390,13 +313,6 @@ Inspired by the need to stop losing sales momentum over missing case studies.
 
 - [Gamma API Documentation](https://developers.gamma.app)
 - [Claude Code Documentation](https://docs.claude.com/claude-code)
-- [Case Study Writing Best Practices](https://example.com) - Coming soon
-
-## Support
-
-- **Issues:** [GitHub Issues](https://github.com/yourusername/claude-gamma-case-studies/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/claude-gamma-case-studies/discussions)
-- **Twitter:** [@jonsukarangsan](https://twitter.com/jonsukarangsan)
 
 ---
 

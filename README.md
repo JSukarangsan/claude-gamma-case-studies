@@ -26,7 +26,7 @@ This workflow fixes that.
 
 ## Demo
 
-[Link to demo video - coming soon]
+https://www.linkedin.com/posts/jsukarangsan_i-use-claude-code-gamma-to-create-case-activity-7397336281694941184-I9QX
 
 ## How It Works
 
